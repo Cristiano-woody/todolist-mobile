@@ -9,10 +9,16 @@ const TasksSearch = () => {
     const [titleTaskInput, setTitleTaskInput] = useState('');
 
     const searchTask = () => {
+        setTasksSearch([])
         try {
-            Axios.get(`http://192.168.0.10:3333/task/id/?id=${titleTaskInput}`)
+            Axios.get('http://192.168.0.10:3333/task/', {
+                params: {
+                    id: titleTaskInput
+                }
+            })
                 .then((response) => {
-                    setTasksSearch([response.data]);
+                    let data = response.data
+                    setTasksSearch(data)
                 });
 
         } catch (err) {
@@ -39,7 +45,7 @@ const TasksSearch = () => {
                 </TouchableOpacity>
             </View>
             <FlatList
-                style={styles.flatListTasks}
+                tyle={styles.flatListTasks}
                 numColumns={1}
                 keyExtractor={(item) => item.id}
                 data={taskSearch}
