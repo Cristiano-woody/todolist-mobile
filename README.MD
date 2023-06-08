@@ -14,6 +14,7 @@ O aplicativo possui as seguintes funcionalidades:
 
 Para iniciar a API, siga os seguintes passos:
 
+- -Clone o repositorio da `API` em sua máquina.[[2]API][1]
 - Execute o comando `npm install` para a instalação de todas as dependências necessárias.
 - Crie um arquivo chamado `.env` e siga as instruções de conexão com o banco de dados no arquivo `.env.exemple`.
 - Após concluir todos os passos acima, execute o comando `npm run dev` para iniciar a API.
@@ -41,3 +42,5 @@ O aplicativo possui 3 telas de uso:
 - 2º tela: Tela de criação das tarefas, onde serão determinados os titulos e descrições das tarefas. 
 - 3º tela: Tela de procura de tarefas, onde irá permitir o usuário procurar uma tarefa específica.
 
+
+[1]: https://github.com/Cristiano-woody/todo-list-api-node-sequelize.git "API TODOLIS"
