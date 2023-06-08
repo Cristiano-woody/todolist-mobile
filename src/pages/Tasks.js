@@ -8,6 +8,20 @@ const Tasks = () => {
     const navigation = useNavigation()
     const [taskDB, setTaskDB] = useState([])
 
+    const deleteTask = async (idTask) => {
+        try{
+            await Axios.delete(`http://192.168.0.10:3333/task/:id?id=${idTask}`)
+        } 
+        catch(err) {
+            console.log(`erro ao deletar: ${err}`)
+        }
+        finally{
+            console.log('passei aqui')
+            allDataTasks()
+        }
+
+    }
+
     //get na api
     const allDataTasks = () => {
         try {
@@ -41,7 +55,7 @@ const Tasks = () => {
                 keyExtractor={(item) => item.id}
                 data={taskDB}
                 renderItem={({ item }) => (
-                    <CardTasks Title={item.title} Description={item.description} />
+                    <CardTasks Title={item.title} Description={item.description} onpress= {() => deleteTask(item.id)} />
                 )}
             />
         </View>
