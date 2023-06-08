@@ -36,7 +36,7 @@ const CreateTask = () => {
         value={title}
       />
 
-      <Text style={styles.description}>Descrrription</Text>
+      <Text style={styles.description}>Description</Text>
       <TextInput
         style={styles.inputDescription}
         multiline={true}

@@ -8,23 +8,21 @@ const TasksSearch = () => {
     const [taskSearch, setTasksSearch] = useState([]);
     const [titleTaskInput, setTitleTaskInput] = useState('');
 
-    const searchTask = () => {
+    const searchTask = async () => {
         setTasksSearch([])
-        try {
-            Axios.get('http://192.168.0.10:3333/task/', {
-                params: {
-                    id: titleTaskInput
-                }
-            })
-                .then((response) => {
-                    let data = response.data
-                    setTasksSearch(data)
-                });
-
-        } catch (err) {
-            console.log(err.message);
+        try{
+           const data = await Axios.get(`http://192.168.0.10:3333/task/:title?title=${titleTaskInput}`)
+           setTasksSearch(data.data)
+        } 
+        catch(err) {
+            console.log(`erro ao deletar: ${err}`)
         }
-    };
+        finally{
+            console.log('passei aqui')
+            
+        }
+
+    }
 
     //so para debugar
     useEffect(() => {
